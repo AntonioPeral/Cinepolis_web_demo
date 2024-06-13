@@ -1,0 +1,92 @@
+/* Colores de Cinépolis */
+:root {
+  --primary-color: #0033a0; /* Azul Cinépolis */
+  --secondary-color: #fdb913; /* Amarillo Cinépolis */
+  --light-color: #ffffff; /* Blanco */
+  --dark-color: #000000; /* Negro */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.navbar {
+  background-color: var(
+    --primary-color
+  ) !important; /* Asegurando que se aplique el color de fondo */
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--secondary-color) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--secondary-color);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(253, 185, 19, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: var(--secondary-color) !important;
+}
+
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;
+}
+
+h1 {
+  margin-top: 20px;
+  color: var(--primary-color);
+}
+
+.card {
+  border: 1px solid var(--primary-color);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.form-label {
+  color: var(--primary-color);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+}
+/* styles.css */
+/* Estilos personalizados para asegurar que las tarjetas sean uniformes */
+.card {
+  height: 100%;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+.card-title {
+  flex-grow: 1;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <title>Detalles de la Película - Cinepolis</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Cinepolis</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="peliculas.html">Películas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="acerca.html">Acerca</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Detalles de la Película -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4">
+          <img id="movie-poster" class="img-fluid" alt="Poster de la Película" />
+        </div>
+        <div class="col-md-8">
+          <h1 id="movie-title" class="mb-3"></h1>
+          <p><strong>Género:</strong> <span id="movie-genre"></span></p>
+          <p><strong>Duración:</strong> <span id="movie-duration"></span></p>
+          <p><strong>Director:</strong> <span id="movie-director"></span></p>
+          <p><strong>Reparto:</strong> <span id="movie-cast"></span></p>
+          <p><strong>Sinopsis:</strong> <span id="movie-synopsis"></span></p>
+          <a href="peliculas.html" class="btn btn-primary">Volver a la lista de películas</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const movieId = params.get('id');
+
+      const movies = {
+        lanochedeldemonio: {
+          title: "La noche del demonio",
+          genre: "Miedo, Terror, Suspenso",
+          duration: "1h 43min",
+          director: "James Wan",
+          cast: "Patrick Wilson, Leigh Whannell, Rose Byrne",
+          synopsis: "Insidious (La noche del demonio en Hispanoamérica) es una película de terror sobrenatural de 2010 dirigida por James Wan, escrita por Leigh Whannell, y protagonizada por Patrick Wilson, Rose Byrne, y Barbara Hershey. Es la primera entrega de la franquicia Insidious, y la tercera en términos de la cronología de la serie. La historia se centra en una pareja cuyo hijo inexplicablemente entra en estado de coma y se convierte en un recipiente para fantasmas en una dimensión astral que quieren habitar su cuerpo. La película se estrenó en los cines el 1 de abril de 2011 y fue el primer lanzamiento en cines de FilmDistrict. Fue seguida por dos secuelas, Chapter 2 (2013) y The Red Door (2023), además de dos precuelas, Chapter 3 (2015) y The Last Key (2018).",
+          poster: "images/lanochedeldemonio.jpeg"
+        },
+        planetadelossimios: {
+          title: "El planeta de los simios",
+          genre: "Ciencia Ficción, Aventura",
+          duration: "2h",
+          director: "Tim Burton",
+          cast: "Mark Wahlberg, Helena Bonham Carter, Tim Roth",
+          synopsis: "La cinta narra la historia del astronauta Leo Davidson quien tiene un aterrizaje forzoso en un planeta habitado por simios inteligentes. Los simios tratan a los humanos como esclavos, pero con la ayuda de una hembra simio llamada Ari, Leo inicia una rebelión.",
+          poster: "images/planetadelossimios.png"
+        },
+        shrek: {
+          title: "Shrek",
+          genre: "Animación, Comedia, Aventura",
+          duration: "1h 30min",
+          director: "Andrew Adamson, Vicky Jenson",
+          cast: "Mike Myers, Eddie Murphy, Cameron Diaz",
+          synopsis: "Shrek es un ogro que disfruta de la vida solitaria en su pantano. Un día, su paz se ve alterada por una invasión de personajes de cuentos de hadas que huyen de la ira de lord Farquaad. Shrek le ofrece un trato: el rescate de la bella princesa Fiona, prometida con el príncipe, a cambio de su tranquilidad.",
+          poster: "images/shrek.jpeg"
+        }
+      };
+
+      const movie = movies[movieId];
+
+      if (movie) {
+        document.getElementById('movie-title').innerText = movie.title;
+        document.getElementById('movie-genre').innerText = movie.genre;
+        document.getElementById('movie-duration').innerText = movie.duration;
+        document.getElementById('movie-director').innerText = movie.director;
+        document.getElementById('movie-cast').innerText = movie.cast;
+        document.getElementById('movie-synopsis').innerText = movie.synopsis;
+        document.getElementById('movie-poster').src = movie.poster;
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
